@@ -69,6 +69,9 @@ public class Restaurant {
 
     public int calculateTotalCost(List<Item> menu) {
         int totalCost = 0;
+        for(int i = 0;i<menu.size();i++){
+            totalCost = totalCost + menu.get(i).getPrice();
+        }
         return totalCost;
     }
 }
