@@ -1,5 +1,6 @@
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Restaurant {
@@ -65,4 +66,9 @@ public class Restaurant {
         return name;
     }
 
+
+    public int calculateTotalCost(List<Item> menu) {
+        int totalCost = 0;
+        return totalCost;
+    }
 }

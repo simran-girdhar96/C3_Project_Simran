@@ -5,8 +5,13 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
 @ExtendWith(MockitoExtension.class)
 class RestaurantTest {
     Restaurant restaurant;
@@ -74,4 +79,12 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    @Test
+    public void selecting_an_item_from_menu_should_return_total_cost(){
+        setMenu();
+        List<Item> items = restaurant.getMenu();
+        int totalCostToCustomer = restaurant.calculateTotalCost(items);
+        assertThat(totalCostToCustomer,equalTo(388));
+    }
 }
